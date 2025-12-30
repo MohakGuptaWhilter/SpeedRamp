@@ -14,6 +14,9 @@ from speedrampFIFO import run_fifo
 from speedrampFISO import run_fiso
 from speedrampSIFO import run_sifo
 from speedrampSISO import run_siso
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 MIN_SPEED = 1.0
@@ -29,7 +32,7 @@ PRESET = "veryfast"
 
 app = FastAPI()
 
-CAMPAIGN_BASE_URL = "https://campaign.dev.whilter.ai"
+CAMPAIGN_BASE_URL = os.getenv('CAMPAIGN_BASE_URL')
 
 class VideoRequest(BaseModel):
     microbriefId: str
